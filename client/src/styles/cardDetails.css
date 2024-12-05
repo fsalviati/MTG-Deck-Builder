@@ -1,0 +1,76 @@
+.card-details-container {
+  display: flex;
+  background-color: #464645;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Cinzel", serif;
+  width: 80%;
+  margin: 25px auto;
+  padding: 40px;
+  height: auto;
+}
+
+.card-img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.card-info-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f5e64c;
+  margin-bottom: 10px;
+}
+
+.card-mana-cost,
+.card-oracle-text,
+.card-power-toughness,
+.card-rarity,
+.card-release-date,
+.card-set-name,
+.card-prices {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.card-oracle-text {
+  font-style: italic;
+  color: #e5e5e5;
+}
+
+.card-power-toughness {
+  font-weight: bold;
+}
+
+.card-prices p {
+  margin: 5px 0;
+  color: #a5d6a7;
+}
+
+.card-prices p:first-of-type {
+  font-weight: bold;
+  color: #f5e64c;
+}
+
+.card-rarity {
+  text-transform: capitalize;
+  color: #ffca28;
+}
