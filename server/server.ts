@@ -44,7 +44,6 @@ app.post("/decks", async (req: Request, res: Response) => {
   const { deck } = req.body;
 
   try {
-    // Transform plain strings into objects if necessary
     const transformedDeck = {
       ...deck,
       cards: deck.cards.map((card: string) => ({ name: card })),
