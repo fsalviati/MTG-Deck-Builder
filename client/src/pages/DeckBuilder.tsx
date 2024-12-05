@@ -44,7 +44,7 @@ const DeckBuilder: React.FC = () => {
       />
       <textarea
         className="deck-textarea"
-        placeholder="Type your deck here - one card per line..."
+        placeholder="Type your deck here - add one card per line..."
         value={deckContent}
         onChange={(e) => setDeckContent(e.target.value)}
       ></textarea>
