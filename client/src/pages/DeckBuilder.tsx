@@ -29,7 +29,7 @@ const DeckBuilder: React.FC = () => {
       console.log(response.data);
     } catch (error) {
       console.error("Error saving deck:", error);
-      setMessage("Failed to save the deck. Please try again.");
+      setMessage("Failed to save the deck. Please try again now.");
     }
   };
 
