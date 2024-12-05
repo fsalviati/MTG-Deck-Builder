@@ -1,4 +1,4 @@
-# MTG-Deck-Builder
+# MTG-Deck-Builder - Under Development
 
 A Magic The Gathering card game app with the purpose of searching cards and building decks.
 
