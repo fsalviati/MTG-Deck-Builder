@@ -4,24 +4,65 @@ import "../styles/deckBuilder.css";
 
 const DeckBuilder: React.FC = () => {
   const [deckName, setDeckName] = useState<string>("");
-  const [deckContent, setDeckContent] = useState<string>("");
+  const [cards, setCards] = useState<
+    { number: number | string; name: string }[]
+  >([]);
   const [message, setMessage] = useState<string | null>(null);
 
+  //Handle Add Card
+  const handleAddCard = () => {
+    setCards([...cards, { number: "", name: "" }]);
+  };
+
+  //Handle Change Card
+  const handleCardChange = (
+    index: number,
+    field: "number" | "name",
+    value: string,
+  ) => {
+    const updatedCards = [...cards];
+    if (field === "number") {
+      const limitedValue = value.slice(0, 2);
+
+      updatedCards[index][field] =
+        limitedValue === "" ? "" : Number(limitedValue);
+    } else {
+      updatedCards[index][field] = value;
+    }
+    setCards(updatedCards);
+  };
+
+  //Handle Remove Card
+  const handleRemoveCard = (index: number) => {
+    const updatedCards = cards.filter((_, i) => i !== index);
+    setCards(updatedCards);
+  };
+
+  //Handle Save Deck
   const handleSave = async () => {
     try {
-      const cards = deckContent
-        .split("\n")
-        .map((card) => card.trim())
-        .filter((card) => card);
+      const totalNumber = cards.reduce((sum, card) => {
+        if (typeof card.number === "number") {
+          return sum + card.number;
+        }
+        return sum;
+      }, 0);
+      console.log("totalNumber = ", totalNumber);
+      if (totalNumber > 60) {
+        setMessage("A deck cannot contain more than 60 cards in total.");
+        return;
+      }
 
-      console.log("deckContent = ", deckContent);
+      const validCards = cards.filter(
+        (card) => card.name.trim() && card.number,
+      );
       console.log("deckName = ", deckName);
-      console.log("cards = ", cards);
+      console.log("cards = ", validCards);
 
       const response = await axios.post("http://localhost:3000/decks", {
         deck: {
           name: deckName,
-          cards,
+          cards: validCards,
         },
       });
 
@@ -29,7 +70,7 @@ const DeckBuilder: React.FC = () => {
       console.log(response.data);
     } catch (error) {
       console.error("Error saving deck:", error);
-      setMessage("Failed to save the deck. Please try again now.");
+      setMessage("Failed to save the deck. Please try again.");
     }
   };
 
@@ -42,14 +83,42 @@ const DeckBuilder: React.FC = () => {
         value={deckName}
         onChange={(e) => setDeckName(e.target.value)}
       />
-      <textarea
-        className="deck-textarea"
-        placeholder="Type your deck here - add one card per line..."
-        value={deckContent}
-        onChange={(e) => setDeckContent(e.target.value)}
-      ></textarea>
+      <div className="card-list">
+        {cards.map((card, index) => (
+          <div key={index} className="card-row">
+            <input
+              type="number"
+              className="card-number-input"
+              placeholder="0"
+              value={card.number}
+              min="1"
+              max="60"
+              step="1"
+              onChange={(e) =>
+                handleCardChange(index, "number", e.target.value)
+              }
+            />
+            <input
+              type="text"
+              className="card-name-input"
+              placeholder="Card name"
+              value={card.name}
+              onChange={(e) => handleCardChange(index, "name", e.target.value)}
+            />
+            <button
+              className="remove-card-button"
+              onClick={() => handleRemoveCard(index)}
+            >
+              −
+            </button>
+          </div>
+        ))}
+      </div>
+      <button className="add-card-button" onClick={handleAddCard}>
+        Add a Card
+      </button>
       <button className="save-button" onClick={handleSave}>
-        Save
+        Save Deck
       </button>
       {message && <p className="message">{message}</p>}
     </div>

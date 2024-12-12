@@ -40,23 +40,24 @@ app.get("/cards/:name", async (req: Request, res: Response) => {
 });
 
 app.post("/decks", async (req: Request, res: Response) => {
-  console.log(" req.body = ", req.body);
   const { deck } = req.body;
 
   try {
     const transformedDeck = {
       ...deck,
-      cards: deck.cards.map((card: string) => ({ name: card })),
+      cards: deck.cards.map((card: { number: string; name: string }) => ({
+        number: card.number,
+        name: card.name,
+      })),
       createdAt: new Date(),
     };
-
-    console.log("Transformed deck:", transformedDeck);
 
     const newDeck = new Deck(transformedDeck);
 
     await newDeck.save();
     res.status(201).json({ message: "Deck saved successfully", deck: newDeck });
   } catch (err) {
+    console.error("Error saving deck:", err);
     const errorMessage = (err as Error).message;
     res.status(500).json({ error: errorMessage });
   }
