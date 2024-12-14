@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "../styles/navbar.css";
@@ -9,45 +9,66 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link to="/" className="title">
-        Home
-      </Link>
       <div className="menu-mobile" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul className={menuOpen ? "open" : ""}>
-        {isAuthenticated && (
-          <>
+      <div className="nav-links">
+        <ul className={menuOpen ? "open" : ""}>
+          <div className="nav-menu-items">
+            {isAuthenticated && (
+              <>
+                <li>
+                  <NavLink to="/" className="navItems">
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/deck-builder" className="navItems">
+                    Deck Builder
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/my-decks" className="navItems">
+                    My Decks
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li>
-              <NavLink to="/deck-builder">Deck Builder</NavLink>
+              <NavLink to="about" className="navItems">
+                About
+              </NavLink>
             </li>
-            <li>
-              <NavLink to="/my-decks">My Decks</NavLink>
-            </li>
-          </>
-        )}
-        <li>
-          <NavLink to="about">About</NavLink>
-        </li>
-        <li>
-          {isAuthenticated ? (
-            <button
-              onClick={() =>
-                logout({ logoutParams: { returnTo: window.location.origin } })
-              }
-            >
-              Log Out
-            </button>
-          ) : (
-            <button className="auth-button" onClick={() => loginWithRedirect()}>
-              Log In
-            </button>
-          )}
-        </li>
-      </ul>
+          </div>
+          <div className="nav-auth-button">
+            {isAuthenticated ? (
+              <li>
+                <button
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button
+                  className="auth-button"
+                  onClick={() => loginWithRedirect()}
+                >
+                  Log In
+                </button>
+              </li>
+            )}
+          </div>
+        </ul>
+      </div>
     </nav>
   );
 };

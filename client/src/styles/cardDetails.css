@@ -1,11 +1,11 @@
 .card-details-container {
   display: flex;
+  flex-direction: row;
   background-color: #464645;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: "Cinzel", serif;
-  width: 80%;
+  width: 85%;
   margin: 25px auto;
   padding: 40px;
   height: auto;
@@ -73,4 +73,11 @@
 .card-rarity {
   text-transform: capitalize;
   color: #ffca28;
+}
+
+@media (max-width: 480px) {
+  .card-details-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

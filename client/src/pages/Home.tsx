@@ -26,14 +26,13 @@ const Home: React.FC = () => {
 
     try {
       const response = await axios.get<Card>(
-        `http://localhost:3000/cards/${encodeURIComponent(searchQuery)}`
+        `http://localhost:3000/cards/${encodeURIComponent(searchQuery)}`,
       );
-      console.log(response.data);
 
       setCard(response.data);
     } catch (err) {
       setError(
-        "Failed to fetch card. Please check the card name and try again."
+        "Failed to fetch card. Please check the card name and try again.",
       );
       console.error(err);
     } finally {

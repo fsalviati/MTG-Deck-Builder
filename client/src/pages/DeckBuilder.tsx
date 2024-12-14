@@ -47,7 +47,6 @@ const DeckBuilder: React.FC = () => {
         }
         return sum;
       }, 0);
-      console.log("totalNumber = ", totalNumber);
       if (totalNumber > 60) {
         setMessage("A deck cannot contain more than 60 cards in total.");
         return;
@@ -56,8 +55,6 @@ const DeckBuilder: React.FC = () => {
       const validCards = cards.filter(
         (card) => card.name.trim() && card.number,
       );
-      console.log("deckName = ", deckName);
-      console.log("cards = ", validCards);
 
       const response = await axios.post("http://localhost:3000/decks", {
         deck: {
@@ -67,7 +64,6 @@ const DeckBuilder: React.FC = () => {
       });
 
       setMessage("Deck saved successfully!");
-      console.log(response.data);
     } catch (error) {
       console.error("Error saving deck:", error);
       setMessage("Failed to save the deck. Please try again.");
