@@ -47,7 +47,7 @@ export interface Card {
   mana_cost?: string;
   oracle_text?: string;
   power?: string;
-  thoughness?: string;
+  toughness?: string;
   prices?: Prices;
   rarity?: string;
   released_at?: string;

@@ -1,0 +1,13 @@
+:root {
+  /* Text */
+  --primary-navbar-text-color: rgb(231 216 177);
+  --primary-navbar-text-color-active: rgb(222, 193, 119);
+  --primary-text-color: rgb(12, 12, 12);
+  --secondary-text-color: rgb(186, 162, 65);
+  --tertiary-text-color: #ededd9;
+
+  --primary-border-color: rgb(231 216 177);
+
+  --primary-black: #000;
+  --primary-white: #fff;
+}

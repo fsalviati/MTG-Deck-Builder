@@ -47,13 +47,14 @@ const Navbar = () => {
             {isAuthenticated ? (
               <li>
                 <button
+                  className="auth-button"
                   onClick={() =>
                     logout({
                       logoutParams: { returnTo: window.location.origin },
                     })
                   }
                 >
-                  Log Out
+                  Logout
                 </button>
               </li>
             ) : (
@@ -62,7 +63,7 @@ const Navbar = () => {
                   className="auth-button"
                   onClick={() => loginWithRedirect()}
                 >
-                  Log In
+                  Login
                 </button>
               </li>
             )}

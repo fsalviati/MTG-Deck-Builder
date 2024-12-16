@@ -1,0 +1,12 @@
+.footer {
+  width: 100%;
+  z-index: 1000;
+  height: 55px;
+  box-sizing: border-box;
+  background-color: rgb(19, 19, 19);
+  backdrop-filter: blur(3px);
+  text-align: center;
+  padding: 1rem;
+  color: var(--primary-navbar-text-color);
+  font-size: 1rem;
+}

@@ -1,9 +1,8 @@
 .card-details-container {
   display: flex;
   flex-direction: row;
-  background-color: #464645;
+  background-color: rgba(42, 42, 42, 0.8);
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   color: white;
   width: 85%;
   margin: 25px auto;
@@ -23,7 +22,6 @@
   width: 100%;
   height: auto;
   border-radius: 18px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .card-info-container {
@@ -73,6 +71,12 @@
 .card-rarity {
   text-transform: capitalize;
   color: #ffca28;
+}
+
+@media (max-width: 1024px) {
+  .card-details-container {
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
