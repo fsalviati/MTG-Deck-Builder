@@ -108,6 +108,12 @@ nav .menu-mobile span {
     backdrop-filter: blur(6px);
   }
 
+  nav .nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
   nav .menu-mobile {
     display: flex;
   }
@@ -131,6 +137,7 @@ nav .menu-mobile span {
   nav .nav-auth-button {
     align-self: center;
     margin-right: 0;
+    margin-bottom: 16px;
   }
 
   nav .active {

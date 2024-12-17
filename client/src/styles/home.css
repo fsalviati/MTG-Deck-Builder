@@ -34,7 +34,7 @@
 
 .home-container-second {
   margin-top: 0;
-  padding: 30px;
+  padding: 65px 45px;
   width: 100%;
   background-color: var(--primary-black);
   color: #fff;
@@ -46,7 +46,7 @@
   width: 100%;
 }
 .mtg-logo-container .mtg-logo {
-  width: 25%;
+  width: 20%;
   height: auto;
   display: block;
   margin: 0 auto 1rem;
@@ -59,30 +59,24 @@
   flex-direction: column;
   background-color: rgba(96, 96, 96, 0.3);
   backdrop-filter: blur(4px);
-  margin: 20px 0;
-  padding: 30px 0 15px 0;
+  margin: 20px 0 50px 0;
+  padding: 30px 0 50px 0;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
   text-align: center;
-  width: 60%;
+  width: 50%;
   height: auto;
 }
 
 .home-card-search-container .form-search-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 25px 0px;
-}
-.home-card-search-container .home-card-search-description {
-  width: 75%;
-  padding: 0px 15px 30px 15px;
-  font-size: 1.1rem;
-  line-height: 25px;
-  letter-spacing: 1.2px;
-  font-weight: lighter;
-  color: var(--primary-navbar-text-color);
 }
 
 .home-card-search-container input[type="text"] {
-  width: 300px;
+  width: 250px;
   height: 45px;
   padding: 10px;
   border: 2px solid var(--secondary-text-color);
@@ -118,14 +112,54 @@
   background-color: var(--primary-navbar-text-color-active);
 }
 
-@media (max-width: 1024px) {
+.home-card-search-container .home-card-search-description {
+  width: 85%;
+  padding: 0px 15px 0px 15px;
+  font-size: 1.1rem;
+  line-height: 25px;
+  letter-spacing: 1.2px;
+  font-weight: lighter;
+  color: var(--primary-navbar-text-color);
+}
+
+.loading-text {
+  color: var(--primary-navbar-text-color);
+  font-size: 16px;
+}
+
+.error {
+  margin: 12px 0px;
+  color: var(--error-text);
+  font-size: 16px;
+}
+
+@media (min-width: 1025px) {
+  .home-card-search-container input[type="text"]:focus,
+  .home-card-search-container input[type="text"]:not(:placeholder-shown) {
+    width: 400px;
+    margin-left: -150px;
+  }
+  .home-card-search-container input[type="text"] {
+    transition: width 0.25s ease, margin-left 0.25s ease;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 2500px) {
   .home-card-search-container {
-    margin: 20px 0;
+    width: 70%;
+    margin: 20px 0 60px 0;
+    padding: 30px 0 60px 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .home-card-search-container {
+    margin: 15px 0 80px 0;
     padding: 30px 0 15px 0;
     width: 85%;
   }
   .mtg-logo-container .mtg-logo {
-    width: 32%;
+    width: 30%;
   }
   .home-card-search-container .home-card-search-description {
     width: 80%;
@@ -134,8 +168,8 @@
 
 @media (max-width: 480px) {
   .home-card-search-container {
-    margin: 20px 0;
-    padding: 30px 0 15px 0;
+    margin: 15px 0 85px 0;
+    padding: 30px 0 25px 0;
     width: 88%;
   }
   .mtg-logo-container .mtg-logo {
@@ -154,5 +188,10 @@
     align-items: center;
     flex-direction: column;
     gap: 16px;
+  }
+  .error {
+    margin: 12px 16px;
+    color: var(--error-text);
+    font-size: 16px;
   }
 }

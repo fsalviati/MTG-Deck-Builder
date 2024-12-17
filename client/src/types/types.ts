@@ -52,4 +52,6 @@ export interface Card {
   rarity?: string;
   released_at?: string;
   set_name?: string;
+  type_line?: string;
+  cmc?: number;
 }

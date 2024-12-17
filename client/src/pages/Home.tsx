@@ -57,9 +57,10 @@ const Home: React.FC = () => {
             <p>
               Explore a comprehensive collection of Magic: The Gathering cards!
               You can search for any card by name and view detailed information
-              including card attributes, abilities, and more. Once logged in,
-              you can also create your own deck and start building your
-              collection
+              including card attributes, abilities, and more.
+              <br />
+              Login to create your deck. Example of cards to search: Avatar of
+              woe, Cancel, Fireball
             </p>
           </div>
           <form className="form-search-card" onSubmit={handleSearchSubmit}>
@@ -74,7 +75,7 @@ const Home: React.FC = () => {
             <button type="submit">Search</button>
           </form>
 
-          {loading && <p>Loading...</p>}
+          {loading && <p className="loading-text">Loading...</p>}
           {error && <p className="error">{error}</p>}
           {!loading && !error && card && <CardDetails card={card} />}
         </div>

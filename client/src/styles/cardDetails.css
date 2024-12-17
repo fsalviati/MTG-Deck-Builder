@@ -3,85 +3,108 @@
   flex-direction: row;
   background-color: rgba(42, 42, 42, 0.8);
   border-radius: 10px;
-  color: white;
-  width: 85%;
-  margin: 25px auto;
-  padding: 40px;
+  color: var(--primary-navbar-text-color);
+  width: 90%;
+  padding: 30px;
   height: auto;
 }
 
 .card-img-container {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  width: 40%;
 }
 
 .card-img-container img {
-  width: 100%;
+  width: 85%;
   height: auto;
-  border-radius: 18px;
+  border-radius: 21px;
 }
 
 .card-info-container {
-  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+  width: 60%;
+}
+
+.card-info-container p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.mana-symbol {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 .card-name {
   font-size: 2rem;
   font-weight: bold;
-  color: #f5e64c;
+  color: var(--secondary-text-color);
   margin-bottom: 10px;
 }
 
-.card-mana-cost,
-.card-oracle-text,
-.card-power-toughness,
-.card-rarity,
-.card-release-date,
-.card-set-name,
-.card-prices {
-  margin: 10px 0;
-  font-size: 1.1rem;
-}
-
 .card-oracle-text {
-  font-style: italic;
-  color: #e5e5e5;
+  text-align: left;
+  width: 90%;
+  white-space: pre-line;
 }
 
-.card-power-toughness {
-  font-weight: bold;
+@media (min-width: 1025px) and (max-width: 2500px) {
+  .card-img-container img {
+    width: 70%;
+  }
 }
 
-.card-prices p {
-  margin: 5px 0;
-  color: #a5d6a7;
-}
-
-.card-prices p:first-of-type {
-  font-weight: bold;
-  color: #f5e64c;
-}
-
-.card-rarity {
-  text-transform: capitalize;
-  color: #ffca28;
-}
-
-@media (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   .card-details-container {
+    width: 85%;
+  }
+  .card-info-container p {
+    margin: 6px 0;
+    font-size: 1rem;
+  }
+  .card-img-container img {
     width: 90%;
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .card-img-container {
+    width: 100%;
+    margin-right: 0px;
+  }
   .card-details-container {
     display: flex;
     flex-direction: column;
+    width: 90%;
+  }
+  .card-img-container img {
+    width: 100%;
+    border-radius: 18px;
+  }
+  .card-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 26px;
+  }
+  .card-oracle-text {
+    text-align: center;
+    width: 100%;
+    white-space: pre-line;
+  }
+  .card-info-container p {
+    margin: 6px 0;
+    font-size: 1rem;
   }
 }
