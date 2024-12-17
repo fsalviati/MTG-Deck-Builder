@@ -60,7 +60,7 @@ const Home: React.FC = () => {
               including card attributes, abilities, and more.
               <br />
               Login to create your deck. Example of cards to search: Avatar of
-              woe, Cancel, Fireball
+              woe, Cancel, Fireball.
             </p>
           </div>
           <form className="form-search-card" onSubmit={handleSearchSubmit}>
